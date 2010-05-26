@@ -1,0 +1,42 @@
+Changelog for 0.7 beta
+
+BUG FIXES
+- Fixed user code replacement in browser view. Requires modification to view link. Check example template.
+- Fixed content.ini. Removed AvailableCustomTags[], IsInline[] and AvailableClasses[] definitions.
+- Fixed SMTP connection issue.
+- Fixed redirect in subscribe module.
+- Fixed count bug in CSV import.
+- Fixed user fields bug in CSV export (all user fields were not fetched).
+- Fixed few undefined variables in nvnewsletter.php.
+- Fixed missing node_id and main_node_id in newsletter template.
+- Fixed newsletter name in preview sending.
+- Fixed issue with https in getLink function.
+
+NEW FEATURES
+- Templates tuned for eZ Publish 4.3
+- Added email notification after unsubscribe. Configurable via nvnewsletter.ini.
+- Added usleep to email sending. Configurable via nvnewsletter.ini.
+- Added possibility to create objects below newsletter in newsletter view. Eg. newsletter specific articles.
+- Added $existsCount parameter to CSV import. Purpose is to show how many receivers already are in system.
+- Added quiet mode check to cronjob.
+- Added ConnectionType setting to nvnewsletter.ini.
+- Added support for personalization. All defined user fields are available. Configurable via nvnewsletter.ini. Works in email and browser view.
+- Added personalization by email to preview sending.
+- Added status fields for receiver unsubscription and subscription. This is for future enhancements. Not used yet.
+    (STATUS_GROUP_PENDING, STATUS_GROUP_CONFIRMED, STATUS_GROUP_APPROVED, STATUS_GROUP_UNSUBSCRIBED_BY_USER, STATUS_GROUP_UNSUBSCRIBED_BY_ADMIN).
+- Added newsletter block to dashboard.
+
+CHANGES
+- Changed templateInit() to eZTemplate::factory() and removed template.php includes.
+- Changed datetime display to use i10n.
+- Changed all constants to full uppercase format.
+- Changed db table nvnewsletter_receivers_mailtemp to nvnewsletter_receivers_in_progress.
+- Changed db table field nvnewsletter_receivers_in_progress.user_id to nvnewsletter_receivers_in_progress.receiver_id for consistent naming.
+- Partially rewritten nvNewsletterMailer class and cronjob which handles mail sending.
+- Removed class nvNewsletterMailerQueries. Methods implemented in nvNewsletterMailer class.
+- Deprecated create method in nvNewsletterCSV class
+- Cleaned up and restructured code in general.
+
+NOTES FOR BACKWARDS COMPATIBILITY
+* DB has changed. Backup first and run update queries when updating!
+* New syntax for ReplaceTag[] array in settings.
