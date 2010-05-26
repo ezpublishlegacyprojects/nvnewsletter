@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `nvnewsletter_receiverfields` (
   `meta` text collate utf8_unicode_ci,
   `field_order` int(11) NOT NULL,
   PRIMARY KEY  (`id`,`status`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `nvnewsletter_receivers_has_fields` (
   `data` varchar(255) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`receiver_id`,`receiverfield_id`),
   KEY `data` (`data`(15))
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `nvnewsletter_receivers_has_groups` (
   PRIMARY KEY  (`receiver_id`,`receivergroup_id`),
   KEY `fk_nvnewsletter_receivergroups_nvnewsletter_receivers` (`receiver_id`),
   KEY `fk_nvnewsletter_receivergroups_nvnewsletter_receivergroups` (`receivergroup_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `nvnewsletter_receivers_has_groups_unsub` (
   PRIMARY KEY  (`receiver_id`,`receivergroup_id`),
   KEY `fk_nvnewsletter_receivergroups_nvnewsletter_receivers` (`receiver_id`),
   KEY `fk_nvnewsletter_receivergroups_nvnewsletter_receivergroups` (`receivergroup_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
