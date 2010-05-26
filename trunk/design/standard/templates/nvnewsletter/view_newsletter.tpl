@@ -95,7 +95,7 @@
                     <input class="button" type="submit" name="EditButton" value="{'Edit'|i18n('design/nvnewsletter')}" title="{'Edit this newsletter.'|i18n('design/nvnewsletter')}" />
                 </form>
                 <form name="queue_newsletter" method="post" action={concat('/nvnewsletter/queue_draft/', $newsletter.id)|ezurl} style="display:inline">
-                    <input class="button" type="submit" value="{'Queue'|i18n('design/nvnewsletter')}" title="{'Queue newsletter.'|i18n('design/nvnewsletter')}" />
+                    <input class="defaultbutton" type="submit" value="{'Queue'|i18n('design/nvnewsletter')}" title="{'Queue newsletter.'|i18n('design/nvnewsletter')}" />
                 </form>
             {/if}
         </div>
