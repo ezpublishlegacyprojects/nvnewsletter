@@ -1,0 +1,1 @@
+ALTER TABLE `nvnewsletter_receivers` DROP `user_node_id`

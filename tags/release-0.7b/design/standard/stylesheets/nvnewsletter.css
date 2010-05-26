@@ -1,0 +1,60 @@
+label.checkbox {
+    display: inline;
+    font-weight: normal;
+}
+
+#newsletterSubscriptionStatus .error {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+#newsletterSubscriptionStatus .success {
+    color: #029502;
+    font-weight: bold;
+}
+
+#previewEmail {
+    width: 250px;
+}
+
+.objectinfo #previewEmail {
+    width: 90%;
+}
+
+.rowsTotal {
+    text-align: center !important;
+}
+
+a.button {
+    -moz-border-radius:3px 3px 3px 3px;
+    background: url(/design/admin2/images/2/gradient-btn-blue.png) repeat-x scroll center bottom #D1DFE9;
+    border-color: #aaa #ccc #ccc #aaa;
+    border-style: solid;
+    border-width: 1px;
+    color: #fff;
+    cursor:pointer;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 0.9em;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    overflow: visible;
+    padding: 1px 0.5em;
+    width: auto;
+    text-decoration: none;
+    margin-left: 3px;
+}
+/*
+a.button {
+    background: #4d7299 url(../images/inputbutton-enabled-bg.gif) center top repeat-x;
+    border-color: #fff #2f475f #2f475f #fff;
+    border-style: solid;
+    border-width: 2px;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-left: 4px;
+    padding: 0.10em 0.35em;
+    text-decoration: none;
+}
+*/

@@ -1,0 +1,61 @@
+nvNewsletter v0.7 INSTALL
+=========================
+
+1. Install and activate nvnewsletter extension (remember to regenerate autoload array).
+
+2. Create tables into database (extension/nvnewsletter/sql/mysql/schema.sql).
+
+3. Create new section for newsletter. Navigation part must be Newsletter.
+   Check override.ini section IDs for edit templates.
+
+4. Create class group called Newsletter
+
+5. Create content class for newsletter. Package feature seems to be broken so no content class package at the moment.
+
+   Required fields are: 
+     * Name [Text line] (identifier: name)
+     * Plain text content [Text block] (identifier: plain_text_content)
+     * Groups [nvNewsletter: Group selection] (identifier: groups_data)
+     * Sender [nvNewsletter: Sender information] (identifier: sender_data)
+     * Site selection [nvNewsletter: Site selection] (identifier: site_selection)
+
+6. Create Newsletter folder into Media section (this folder will contain all newsletter objects). 
+   Newsletter folder must be assigned to Newsletter section.
+
+7. Create override for nvnewsletter.ini and change settings below to match your setup.
+   Generate new hashes (hashes must be regenerated for every project!) and set site URL.
+
+    [ContentClassSettings]
+    NewsletterClassGroup=5
+    NewsletterSection=6
+    SenderFieldIdentifier=sender_data
+    GroupsFieldIdentifier=groups_data
+    NewsletterNodeID=59
+
+    [HashSettings]
+    ## Hashes used in unsubscribe links and file names. Don't change file hash after newsletter generation.
+    ## CHANGE THESE PER INSTALLATION
+    UserHash=ae877fdc0813f6dd65465d4de126bb5811df56dc375b40cec16d5e2a93828161
+    FileHash=cc2bd8f09bb88b5dd20f9b432631b8caec7def57dec4a30186c02138b6e831f3
+    
+    [SiteSettings]
+    ## Format
+    ## Different site url and file root: SiteURL[Site name]=http://www.site-url.com;http://www.file-path.com
+    ## Same site url and file root: SiteURL[Site name]=http://www.site-url.com
+    SiteURL[]
+
+8. Create override for template. Check readme.txt for more info about templates.
+
+9. Set cronjob running in every 3 minutes or whatever you like. "-s site_admin" part is important!
+   php runcronjobs.php -s site_admin sendmail
+   
+10. Copy extension/nvnewsletter/nvtracker.php file to the root of eZ Publish installation and place following rewrite rules to htaccess or Apache conf
+
+   Rewriterule ^trk_(.*)\.gif$ nvtracker.php?code=$1 [L]
+   Rewriterule ^nvtracker.php - [L]
+   
+11. Create sender and receiver group in admin interface.
+
+12. If you're using eZ Publish version < 4.3 enable standard_ezp42 design for admin interface.
+   
+13. Check readme.txt for more information.
