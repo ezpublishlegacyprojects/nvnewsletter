@@ -1,0 +1,1 @@
+{if eq( $format, 'text' )}<pre>{$result.content}</pre>{else}{$result.content}{/if}

@@ -1,0 +1,7 @@
+nvNewsletter v0.7 FAQ
+=====================
+
+1. Why newsletter templates are not loaded?
+
+   Check override rules.
+   Check if design is used by admin interface.

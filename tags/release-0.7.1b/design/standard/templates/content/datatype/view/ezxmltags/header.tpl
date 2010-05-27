@@ -1,0 +1,1 @@
+<h{$level}{section show=ne($classification|trim,'')} class="{$classification|wash}"{/section} id="eztoc{$toc_anchor_name}">{$content}</h{$level}>

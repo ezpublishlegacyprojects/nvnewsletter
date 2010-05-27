@@ -1,0 +1,13 @@
+Changelog for 0.6beta
+
+- Added $receiverFields parameter to subscribe method.
+- Added workflow which transfers eZUser to newsletter receiver. Check nvnewsletter.ini for new configuration options.
+- Added eZUser matching with email to receiver templates.
+- Added CSV export from receiver groups.
+- Changed CSV import. Unsubscribed users now stays unsubscribed when importing users to group.
+- Changed few methods in nvNewsletterReceiverGroup class to use persistent object.
+- Fixed redirect in subscribe module. Redirect should now work with vhost or without vhost mode.
+- Fixed text email preview with <pre> tags.
+
+NOTES FOR BACKWARDS COMPATIBILITY
+- Removed useless user_node_id field from nvnewsletter_receivers database table.
