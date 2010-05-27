@@ -5,7 +5,7 @@
  * @copyright Copyright (c) 2009 Naviatech Solutions. All rights reserved.
  * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License V2
  * @author Naviatech Solutions <http://www.naviatech.fi>
- * @version 0.7b
+ * @version 0.7.1b
  * @package nvNewsletter
  */
 class nvNewsletterClickTrackLink extends eZPersistentObject 
