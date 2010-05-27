@@ -94,6 +94,23 @@ class nvNewsletterClickTrack extends eZPersistentObject
         
         $objectID = (int)$objectID;
         
+        $object = eZContentObject::fetch( $objectID );
+        
+        // Get children objectIDs
+        // This is needed for article links
+        $mainNode = $object->mainNode();
+        $children = $mainNode->children();
+        
+        $objectIDArray = array( $objectID );
+        
+        if ( $children )
+        {
+            foreach ( $children as $child )
+            {
+                $objectIDArray[] = $child->attribute( 'contentobject_id' );
+            }
+        }
+        
         $checkURLQuery = "
               SELECT 
                 ezurl.id  
@@ -107,7 +124,7 @@ class nvNewsletterClickTrack extends eZPersistentObject
                 ezurl.id = ezurl_object_link.url_id AND
                 ezurl_object_link.contentobject_attribute_id = ezcontentobject_attribute.id AND
                 ezcontentobject_attribute.contentobject_id = ezcontentobject.id AND
-                ezcontentobject.id = $objectID 
+                ezcontentobject.id IN ( ".implode( ', ', $objectIDArray )." )
              LIMIT 1";
         
         $urlArray = $db->arrayQuery( $checkURLQuery );
